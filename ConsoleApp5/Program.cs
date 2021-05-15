@@ -6,17 +6,26 @@ namespace ConsoleApp5
 	{
 		static void Main(string[] args)
 		{
-			Console.Write("Enter legth of an arra: ");
-		
-
-			
-			int length = Int32.Parse(Console.ReadLine());
+			int length = 10;
 			int[] arr = new int[length];
+			bool isNumberOk = false;
+			int diaposon = 0;
 
-			Console.Write("Enter diaposon from 0 to 'Your value': ");
-			int diaposon = Int32.Parse(Console.ReadLine());
+			while (!isNumberOk)
+			{
+				try
+				{
+					Console.Write("Enter diaposon from 0 to 'Your value': ");
+					diaposon = Int32.Parse(Console.ReadLine());
+					isNumberOk = true;
+				}
 
-
+				catch
+				{
+					Console.WriteLine("Enter a number: ");
+				}
+			}
+			
 			Random rnd = new Random();
 
 			for(int i = 0; i < arr.Length; i++)
@@ -24,6 +33,7 @@ namespace ConsoleApp5
 				arr[i] = rnd.Next(0, diaposon);
 			}
 
+			Console.WriteLine();
 			Console.WriteLine("Origin array");
 
 			for(int i = 0; i < arr.Length; i++)
@@ -46,6 +56,9 @@ namespace ConsoleApp5
 				}
 			}
 
+			Console.WriteLine();
+
+			Console.WriteLine();
 			Console.WriteLine("Sorted  array");
 
 			for (int i = 0; i < arr.Length; i++)
